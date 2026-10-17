@@ -4,7 +4,7 @@ Read a small, manually entered portfolio from your AI client.
 
 [Developer website](https://fillfolio.com/) · [Official free offering](https://fillfolio.com/free-portfolio-mcp) · [Fillfolio MCP](https://fillfolio.com/mcp)
 
-**Development preview, version 0.1.0.** The hosted free workspace and separate OAuth service are active. We tested native OAuth, reads and pagination in Cursor Desktop 3.25.6 and Grok Build 1.0.62. Full acceptance and marketplace review remain pending, including the revocation-message and fresh-sign-in recovery checks. See [acceptance status](ACCEPTANCE.md).
+**Development preview, version 0.1.0.** The hosted free workspace and separate OAuth service are active. We tested native OAuth, reads and pagination in Cursor Desktop 3.25.6 and Grok Build 1.0.62. Fresh-sign-in recovery and reconnection pass. Full acceptance and marketplace review remain pending, including the native revocation-message check. See [acceptance status](ACCEPTANCE.md).
 
 ## The free offering
 
