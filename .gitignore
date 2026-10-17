@@ -9,3 +9,4 @@ artifacts/
 .cursor/
 __pycache__/
 AGENTS.md
+.projects-brain/
