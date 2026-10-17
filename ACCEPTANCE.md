@@ -1,20 +1,32 @@
 # Acceptance status
 
-Prepared on 2026-10-17. Version: 0.1.0.
+Updated on 2026-10-17. Package version: 0.1.0. Marketplace submissions remain on hold.
+
+The native tests used public package commit `4ce47c9f914d8d7136c3c5474e3518828d4e8d5f`. Later documentation updates do not change its manifests, client configuration, tools or skills.
 
 | Gate | Status |
 | --- | --- |
-| Client manifests and three skills | Local package validator and official skill validator pass |
-| Hosted implementation | Deployed through guarded web and Worker releases; 2,264 unit tests and release gates passed |
+| Client manifests and three skills | Package validator and official skill validator pass |
+| Hosted implementation | Active; guarded web/Worker release and isolated backup restores passed |
 | Database limits and OAuth isolation | Synthetic tests pass; independent review corrections rechecked |
-| Website | Synthetic Chrome checks pass for manual entry, three-slot cap, masking, mobile layout, quota and rollout pauses |
-| Production activation | Active; separate issuer, resource and two registered clients verified |
-| Cursor Desktop released version | Pending native acceptance |
-| Grok Build released version | Pending native acceptance |
-| Marketplace submissions | Not submitted |
+| Website | Synthetic desktop/mobile checks and live manual-entry, three-slot cap, zero quantity, deletion and masking checks pass |
+| Fresh password login | Owner-assisted Incognito sign-in reached the Free workspace without an email code or MFA |
+| Cursor Desktop 3.25.6 | Native OAuth, two-tool discovery, summary, holdings pages of 2 and 1 and reconnection pass |
+| Grok Build 1.0.62 | Native OAuth, two-tool discovery, summary, holdings pages of 2 and 1 and reconnection pass |
+| Continued access | Cursor 677.028 seconds; Grok 689.864 seconds, with no interim foreground reads or sign-in prompt |
+| Revocation presentation | Cursor timed out; Grok waited for reauthorization. Neither returned an explicit native denial result. Gate remains inconclusive |
+| Free sign-in recovery UI | Correction deployed after independent review and guarded checks; actual expired-session recovery flow pending |
+| Existing paid MCP control | Correct nonpartial read after the Free web correction; no authorization change |
+| Marketplace submissions | Cursor application prepared; Grok catalog draft validates; neither submitted |
 
-This file will record tested official versions and submission receipts. A configuration example does not establish compatibility or marketplace approval. We make no changes to the existing ChatGPT or Notion packages through this repository.
+## Evidence and limits
 
-Local evidence covers 47 focused tests across the isolated database/OAuth implementation, valuation, actual tool contracts, HTTP routes, host routing and redacted logging. Test credentials, account IDs, holdings and prices are synthetic. Live additive migrations and isolated backup restores passed. Owner-assisted password sign-in in a new Chrome Incognito window reached the empty free workspace without an email code or MFA. Manual-entry acceptance is in progress. Released-client compatibility remains unverified.
+The native clients returned the expected three-position fixture, separate native currencies, source quote times and missing-cost warnings. Both clients reconnected through their normal OAuth flow. Cursor remained usable after the Grok-only access change. The tests used synthetic quantities and actual cached market observations. Quote coverage and freshness vary; response time does not establish quote freshness.
 
-The release preserves existing paid client registrations and keeps the free database and OAuth namespaces separate. The signed backup capture, independent Oracle/R2 restores and full backup monitor check passed. The normal backup timer is active. These operational checks do not establish Cursor or Grok compatibility.
+The continued-access checks establish access over those intervals. They do not establish observed token rotation or credential persistence guarantees. An earlier Cursor observation exceeded the intended timing window and remains separate from the later pass.
+
+The local HTTP integration tests reject revoked credentials with an explicit authentication challenge. Read-only origin status counts include 401 responses in both recorded native revocation windows, but those aggregates identify no client and supply temporal correlation only. We do not count them as an explicit native denial pass. The tests changed only the separate Free grants and preserved saved positions. A Notion native control is unavailable in the test host.
+
+The latest Free web correction passed 2,265 unit tests, typecheck, lint, production builds, startup checks and the guarded live release. A protected-nginx checksum precondition stopped two earlier attempts before live swap; their receipts are preserved. The reviewed correction uses a bounded checksum reader and preserves file permissions and contents. Ten new and fourteen existing synthetic release-guard tests pass. These operational checks do not clear the remaining native and rendered-UI gates.
+
+The public package contains no credentials, account identifiers, private diagnostics or financial payloads. The release preserves paid client registrations and separate Free database/OAuth namespaces. The signed backup capture, independent Oracle/R2 restores and full backup monitor check passed; the normal backup timer is active. This repository changes neither the existing ChatGPT nor Notion package. Marketplace listing approval remains unverified.

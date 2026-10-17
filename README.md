@@ -4,7 +4,7 @@ Read a small, manually entered portfolio from your AI client.
 
 [Developer website](https://fillfolio.com/) · [Official free offering](https://fillfolio.com/free-portfolio-mcp) · [Fillfolio MCP](https://fillfolio.com/mcp)
 
-**Development preview, version 0.1.0.** The hosted free workspace and separate OAuth service are active. Official client acceptance and marketplace review are pending. Configuration files describe the intended connection; they do not establish current host support. See [acceptance status](ACCEPTANCE.md).
+**Development preview, version 0.1.0.** The hosted free workspace and separate OAuth service are active. We tested native OAuth, reads and pagination in Cursor Desktop 3.25.6 and Grok Build 1.0.62. Full acceptance and marketplace review remain pending, including the revocation-message and fresh-sign-in recovery checks. See [acceptance status](ACCEPTANCE.md).
 
 ## The free offering
 
@@ -29,7 +29,7 @@ The free workspace has no brokerage, exchange, bank or wallet connection, import
 | Cursor Desktop | `.cursor-plugin/plugin.json` → `.mcp.json` | `fillfolio-free-cursor` | `http://localhost:8787/callback` |
 | Grok Build | `.grok-plugin/plugin.json` → `grok.mcp.json` | `fillfolio-free-grok-build` | `http://127.0.0.1:8788/callback` |
 
-These configurations target preregistered public clients. The service does not offer arbitrary dynamic client registration. Do not reuse the paid MCP endpoint or change the callback. Current released-client compatibility will be recorded after native testing.
+These configurations target preregistered public clients. The service does not offer arbitrary dynamic client registration. Do not reuse the paid MCP endpoint or change the callback. The acceptance report records the tested native versions and their remaining limitations. Other versions and clients are unverified.
 
 The MCP resource is `https://free-mcp.fillfolio.com/mcp`, with issuer `https://free-mcp.fillfolio.com` and scope `free-portfolio:read`. Authorization uses PKCE S256. Token and revocation requests go to the issuer; the sign-in and consent page is on `https://fillfolio.com/free-portfolio-mcp/oauth/authorize`.
 
