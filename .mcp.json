@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "fillfolio-free": {
+      "url": "https://free-mcp.fillfolio.com/mcp",
+      "auth": {
+        "CLIENT_ID": "fillfolio-free-cursor",
+        "scopes": ["free-portfolio:read"]
+      }
+    }
+  }
+}

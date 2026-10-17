@@ -1,0 +1,362 @@
+{
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "get_free_portfolio_summary",
+      "title": "Free portfolio summary",
+      "description": "Read the authenticated user's separate free portfolio, at most three manually entered positions. Totals remain in each native currency. Prices use latest available AssetsBag quotes; generatedAt does not establish market freshness. Cannot access the paid workspace.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "idempotentHint": true
+      },
+      "_meta": {
+        "securitySchemes": [
+          {
+            "type": "oauth2",
+            "scopes": [
+              "free-portfolio:read"
+            ]
+          }
+        ]
+      },
+      "outputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "generatedAt": {
+            "type": "string"
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "holdings": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "totals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "string"
+                },
+                "marketValue": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "complete": {
+                  "type": "boolean"
+                },
+                "holdings": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "currency",
+                "marketValue",
+                "complete",
+                "holdings"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "limits": {
+            "type": "object",
+            "properties": {
+              "portfolios": {
+                "type": "number",
+                "const": 1
+              },
+              "assets": {
+                "type": "number",
+                "const": 3
+              },
+              "readsPerMinute": {
+                "type": "number",
+                "const": 60
+              },
+              "readsPerUtcDay": {
+                "type": "number",
+                "const": 1000
+              }
+            },
+            "required": [
+              "portfolios",
+              "assets",
+              "readsPerMinute",
+              "readsPerUtcDay"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "generatedAt",
+          "complete",
+          "warnings",
+          "holdings",
+          "totals",
+          "limits"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_free_holdings",
+      "title": "Free portfolio holdings",
+      "description": "Read up to three manually entered holdings from the authenticated user's free workspace. Price, value and average cost use each row's currency. quoteAt may be unavailable and old observations are labeled stale. No transaction history or paid records.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3"
+            ]
+          },
+          "limit": {
+            "default": 3,
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "idempotentHint": true
+      },
+      "_meta": {
+        "securitySchemes": [
+          {
+            "type": "oauth2",
+            "scopes": [
+              "free-portfolio:read"
+            ]
+          }
+        ]
+      },
+      "outputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "generatedAt": {
+            "type": "string"
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "assetId": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "exchange": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "currency": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "averageCost": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "costBasis": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "price": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "marketValue": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "gain": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "gainPercent": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "quoteAt": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "quoteStatus": {
+                  "type": "string",
+                  "enum": [
+                    "available",
+                    "stale",
+                    "missing",
+                    "timestamp_unavailable"
+                  ]
+                },
+                "positionUpdatedAt": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "const": "manual"
+                }
+              },
+              "required": [
+                "assetId",
+                "symbol",
+                "name",
+                "type",
+                "exchange",
+                "currency",
+                "quantity",
+                "averageCost",
+                "costBasis",
+                "price",
+                "marketValue",
+                "gain",
+                "gainPercent",
+                "quoteAt",
+                "quoteStatus",
+                "positionUpdatedAt",
+                "source"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "total": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "nextCursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "generatedAt",
+          "complete",
+          "warnings",
+          "items",
+          "total",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

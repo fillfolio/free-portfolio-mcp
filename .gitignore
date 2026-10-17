@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+node_modules/
+*.log
+*.zip
+artifacts/
+.codex/
+.cursor/
+__pycache__/
+AGENTS.md

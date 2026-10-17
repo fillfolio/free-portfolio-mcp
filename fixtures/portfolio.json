@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-10-17T12:00:00.000Z",
+  "holdings": [
+    {
+      "assetId": "stock:synthetic-alpha",
+      "symbol": "SYNA",
+      "name": "Synthetic Alpha Equity",
+      "type": "stock",
+      "exchange": null,
+      "currency": "USD",
+      "quantity": 10,
+      "averageCost": 50,
+      "costBasis": 500,
+      "price": 60,
+      "marketValue": 600,
+      "gain": 100,
+      "gainPercent": 20,
+      "quoteAt": "2026-10-17T11:00:00.000Z",
+      "quoteStatus": "available",
+      "positionUpdatedAt": "2026-10-17T10:00:00Z",
+      "source": "manual"
+    },
+    {
+      "assetId": "fund:synthetic-euro",
+      "symbol": "SYNE",
+      "name": "Synthetic Euro Fund",
+      "type": "fund",
+      "exchange": null,
+      "currency": "EUR",
+      "quantity": 2,
+      "averageCost": null,
+      "costBasis": null,
+      "price": 110,
+      "marketValue": 220,
+      "gain": null,
+      "gainPercent": null,
+      "quoteAt": "2026-10-16T16:00:00.000Z",
+      "quoteStatus": "available",
+      "positionUpdatedAt": "2026-10-17T10:00:00Z",
+      "source": "manual"
+    }
+  ],
+  "totals": [
+    {
+      "currency": "EUR",
+      "marketValue": 220,
+      "complete": true,
+      "holdings": 1
+    },
+    {
+      "currency": "USD",
+      "marketValue": 600,
+      "complete": true,
+      "holdings": 1
+    }
+  ],
+  "complete": true,
+  "limits": {
+    "portfolios": 1,
+    "assets": 3,
+    "readsPerMinute": 60,
+    "readsPerUtcDay": 1000
+  },
+  "warnings": [
+    "Values use native quote currencies; totals across currencies must not be added without FX conversion.",
+    "Prices are latest available AssetsBag observations, not guaranteed real-time quotes. generatedAt is response time, not quote freshness.",
+    "Positions describe current manually entered holdings. They do not establish transaction history or annualized performance.",
+    "fund:synthetic-euro: cost basis unavailable"
+  ]
+}

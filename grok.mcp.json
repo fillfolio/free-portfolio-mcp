@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "fillfolio-free": {
+      "type": "http",
+      "url": "https://free-mcp.fillfolio.com/mcp",
+      "oauth": {
+        "clientId": "fillfolio-free-grok-build",
+        "scopes": ["free-portfolio:read"],
+        "callbackPort": 8788
+      }
+    }
+  }
+}

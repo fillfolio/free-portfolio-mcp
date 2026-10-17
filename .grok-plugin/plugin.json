@@ -1,0 +1,13 @@
+{
+  "name": "fillfolio-free-portfolio",
+  "version": "0.1.0",
+  "description": "Read a separate free Fillfolio portfolio with up to three manual assets, native currencies and latest available quote times.",
+  "author": { "name": "Fillfolio" },
+  "homepage": "https://fillfolio.com/free-portfolio-mcp",
+  "repository": "https://github.com/fillfolio/free-portfolio-mcp",
+  "license": "MIT",
+  "logo": "assets/fillfolio.png",
+  "keywords": ["fillfolio", "fillfolio free portfolio", "fillfolio holdings"],
+  "skills": "skills",
+  "mcpServers": "grok.mcp.json"
+}
