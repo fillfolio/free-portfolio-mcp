@@ -4,7 +4,7 @@ Read a small, manually entered portfolio from your AI client.
 
 [Developer website](https://fillfolio.com/) · [Official free offering](https://fillfolio.com/free-portfolio-mcp) · [Fillfolio MCP](https://fillfolio.com/mcp)
 
-**Development preview, version 0.1.0.** Hosted activation, official client acceptance and marketplace review are pending. Configuration files describe the intended free connection; they do not establish current host support. See [acceptance status](ACCEPTANCE.md).
+**Development preview, version 0.1.0.** The hosted free workspace and separate OAuth service are active. Official client acceptance and marketplace review are pending. Configuration files describe the intended connection; they do not establish current host support. See [acceptance status](ACCEPTANCE.md).
 
 ## The free offering
 
